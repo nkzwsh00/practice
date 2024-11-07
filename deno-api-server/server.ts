@@ -18,18 +18,18 @@ app.use(async (ctx, next) => {
   ctx.response.headers.set("X-Response-Time", `${ms}ms`);
 });
 
-// ルート: Hello World
-router.get("/", (ctx) => {
-  ctx.response.body = "Hello World!";
-});
-
-// ルート: JSON レスポンス
-router.get("/api/data", (ctx) => {
-  ctx.response.body = {
-    message: "This is a JSON response",
-    timestamp: new Date(),
-  };
-});
+router
+  .get("/", (ctx) => {
+    // ルート: Hello World
+    ctx.response.body = "Hello World!";
+  })
+  .get("/api/data", (ctx) => {
+    // ルート: JSON レスポンス
+    ctx.response.body = {
+      message: "This is a JSON response",
+      timestamp: new Date(),
+    };
+  });
 
 // ルーターをアプリケーションに追加
 app.use(router.routes());
