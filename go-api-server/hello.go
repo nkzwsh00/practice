@@ -1,12 +1,17 @@
 package main
 
+import (
+	"math/rand"
+)
+
 func main() {
-	const count = 100
-	for i := 1; i <= count; i++ {
-		if i%2 == 0 {
-			println(i, "is even")
-		} else {
-			println(i, "is odd")
-		}
+	// ランダムで6までの数字を返す
+	n := rand.Intn(5) + 1
+	println(n)
+	if n == 6 {
+		println("Lucky!")
+	}
+	if n == 5 {
+		println("Good!")
 	}
 }
